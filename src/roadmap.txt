@@ -1,0 +1,211 @@
+data located in stuart.c.robinson@gmail.com drive
+
+basketball data  and odds data
+
+currently in downloads 
+
+no put here just add to .gitignore
+
+STATS dat problems:
+playerID represented as decimal number instead of integer pbp onCourtInfo
+season=2016/1673922.json missing current lines nba
+
+sup
+Stuarts-MBP:devDayQ12019-ffnn stuartrobinson$ 
+
+
+
+KEEP:
+pbp:
+event.eventId
+event.tvStations -- just array of tvStationId's
+event.teams
+event.startDate
+
+
+odds: ...
+
+1.  make single json file - array of events from pbp data.  keeping only relevant stuff
+
+
+Data I Need:
+
+date_utc
+season
+home_team_statsTeamId
+home_team_city
+home_team_nickname
+away_team_statsTeamId
+away_team_city
+away_team_nickname
+home_team_total_score
+away_team_total_score
+line_init_ou
+line_init_spread
+line_finl_ou
+line_finl_spread
+
+
+
+spread - negative score?  amount the home team is expected to win by
+
+spread = away - home
+
+^ this needs to be calculated per game.  cos stats uses "favoritePoints" and is always negative.  why???
+
+
+TODO
+
+create new empty object - data
+
+1.  load all lines into memory. (max 26 mb)
+2.  iteratively open each pbp file
+3.  per event in pbp file, get needed pbp data, get needed lines info, and add to data
+
+THEN
+
+add input array to json file.  convert object to array.  tokenize etc. one hot for teams and tv stations. 
+
+
+THEN
+
+build X input numpy matrix with events represented multiple times based on recency to current event 
+
+THEN
+
+build y array.  
+
+NEXT
+
+load preparedWithNnArrays.json
+
+its an array
+for each element Obj, 
+  build X input from prior values using RECENCY_BIAS_PARAMETER.  
+  pick a y variable.
+  run NN until WHEN
+  get prediction for current element Obj.  check whether it was correct.  store a tuple of the prediction and the actual value in an array.
+        store the tuple so later we can see if different cutoffs from numeric result gave better results.
+
+RECENCY_BIAS_PARAMETER - something like 5x for past 2 days, 4x for past week, 3x for past month, 2x for past 2 months, 1x for past year
+run the model once per day.
+WHEN - idk?? - have to stop it after after a few seconds tho.  10 seconds per day would take 30 minutes for a season :/
+
+RUN ON AWS.
+
+load to github now.
+
+
+
+
+
+for Genetic Algorithm, use "prevSeasonDivisor" - amount to de-weight previous season data.  de-weight by reducing instances of training data.
+or, should there just be a weight per numDaysSince ?  array of values.  
+
+
+
+
+
+input:
+
+t1
+t2
+t3
+t4
+t5
+t6
+t7
+...
+tn
+t1_isHone
+t2_isHone
+t3_isHone
+t4_isHone
+t5_isHone
+t6_isHone
+t7_isHone
+...
+tn_isHone
+tv1
+tv2
+tv3
+...
+tvn
+away_days_since_prev_game
+home_days_since_prev_game
+away_days_since_prevPrev_game
+home_days_since_prevPrev_game
+away_days_since_prevPrevPrev_game
+home_days_since_prevPrevPrev_game
+
+
+
+
+
+odds 2016 - 1371 "eventId"'s
+dandata 2016 - 14111 event files
+
+TV STATIONS
+- one-hot encode tv stations.  maybe certain teams perform better under pressure
+
+
+"networkType": {
+          "networkTypeId": 2,
+          "name": "Regional"
+        },
+
+
+
+        vs
+"networkType":
+{
+"networkTypeId":1,
+"name":"National"
+}
+
+
+
+    "tvStations": [
+      {
+        "tvStationId": 17,
+        "name": "ESPN2",
+        "callLetters": "ESP2",
+        "networkType": {
+          "networkTypeId": 1,
+          "name": "National"
+        },
+        "country": {
+          "countryId": 1,
+          "name": "United States",
+          "abbreviation": "USA"
+        }
+      },
+      {
+        "tvStationId": 906,
+        "name": "ROOT SPORTS",
+        "callLetters": "ROOT",
+        "networkType": {
+          "networkTypeId": 2,
+          "name": "Regional"
+        },
+        "country": {
+          "countryId": 1,
+          "name": "United States",
+          "abbreviation": "USA"
+        }
+      },
+      {
+        "tvStationId": 908,
+        "name": "FSN Prime Ticket",
+        "callLetters": "PT",
+        "networkType": {
+          "networkTypeId": 2,
+          "name": "Regional"
+        },
+        "country": {
+          "countryId": 1,
+          "name": "United States",
+          "abbreviation": "USA"
+        }
+      }
+    ],
