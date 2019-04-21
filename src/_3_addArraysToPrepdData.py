@@ -1,5 +1,6 @@
 import json
 import datetime
+import constants as C
 
 # now build nn input layer arrays and save with json file.
 # first need to get one-hot encoding maps for teams and tv stations.
@@ -194,6 +195,7 @@ def main():
         obj['y_isOverFinal'] = getIsOverFinal(obj)
         obj['y_homeBeatSpreadInit'] = getHomeBeatSpreadInit(obj)
         obj['y_homeBeatSpreadFinal'] = getHomeBeatSpreadFinal(obj)
+        obj['y_homeDidWin'] = 1 if obj[C.home_team_total_score] > obj[C.away_team_total_score] else 0
         obj['x'] = nnInputArray
 
     for obj in dataAr:

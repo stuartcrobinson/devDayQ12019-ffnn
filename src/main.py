@@ -20,10 +20,12 @@ import constants as C
 
 
 MIN_HISTORICAL_GAMES = 5
-MIN_PREV_GAMES = 70
+MIN_PREV_GAMES = 300
 MAX_DAYS_LOOKBACK = 365
 
-Y_METRIC = C.y_isOverFinal
+# Y_METRIC = C.y_isOverFinal
+Y_METRIC = C.y_homeBeatSpreadFinal
+# Y_METRIC = C.y_homeDidWin
 
 
 # todo don't build X per game!!!! build per DAY
@@ -104,11 +106,28 @@ def toNumpy(x_arrays, y_values, test_x_list, test_y_list):
 
 
 #
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.callbacks import EarlyStopping
+from tensorflow.python.keras.models import Sequential
+from tensorflow.python.keras.layers import Dense
+from tensorflow.python.keras.callbacks import EarlyStopping
+from tensorflow.python.keras.layers import Dropout
+
+"""
+
+HYPERPARAMETERS
+
+dropout: random float between 0 and 1
+hidden layer dimension: random integer between 1 and n_cols*5
+num hidden layers: random integer between 1 and 4
+RECENCY_BIAS_PARAMETER - 5 values.  random ints between 1 and 15
+patience - random int from 0 to 5
+include tv stations = boolean
+validation_split = float between 0 and 0.5
 
 
+"""
+
+
+# https://towardsdatascience.com/building-a-deep-learning-model-using-keras-1548ca149d37
 def doML(X, y, test_X, test_y):
     # create model
     model = Sequential()
@@ -117,38 +136,95 @@ def doML(X, y, test_X, test_y):
     n_cols = X.shape[1]
 
     # add model layers
-    model.add(Dense(n_cols, activation='relu', input_shape=(n_cols,)))
+    model.add(Dropout(0.1, input_shape=(n_cols,)))
+    # model.add(Dense(n_cols, activation='relu'))
+    # model.add(Dense(n_cols, activation='relu', input_shape=(n_cols,)))
     model.add(Dense(n_cols, activation='relu'))
-    model.add(Dense(1))
+    # model.add(Dense(n_cols, activation='relu'))
+    # model.add(Dense(n_cols, activation='relu'))
+    # model.add(Dense(n_cols, activation='relu'))
+    # model.add(Dense(n_cols, activation='relu'))
+    # model.add(Dense(n_cols, activation='relu'))
+    model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
 
     # compile model using mse as a measure of model performance
-    model.compile(optimizer='adam', loss='mean_squared_error')
+    model.compile(optimizer='adam', loss='binary_crossentropy')  # mean_squared_error #binary_crossentropy
 
     # set early stopping monitor so the model stops training when it won't improve anymore
-    early_stopping_monitor = EarlyStopping(patience=3)
+    # early_stopping_monitor = EarlyStopping(patience=0)
+    early_stopping_monitor = EarlyStopping(monitor='loss', patience=0)
 
     # train model
-    model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
+    # model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
+    model.fit(X, y, validation_split=0, epochs=30, callbacks=[early_stopping_monitor])
 
     # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
     test_y_predictions = model.predict(test_X)
+    print(test_y_predictions, test_y)
+    return test_y_predictions, test_y
 
 
-def doEverything(maxSeason=2019):
+def printResults(allYExp, allYActual):
+    if len(allYExp) != len(allYActual):
+        raise ValueError("terrible")
+    count = 0
+    correct = 0
+    maxCutoff = 0.55
+    minCutoff = 0.45
+    for i in range(len(allYActual)):
+        exp = allYExp[i]
+        act = allYActual[i]
+        isOne = exp >= maxCutoff
+        isZero = exp < minCutoff
+        if isOne:
+            if act == 1:
+                correct += 1
+            count += 1
+        if isZero:
+            if act == 0:
+                correct += 1
+            count += 1
+        # print("{:.3f}".format(exp), act, count, correct)
+    if count > 0:
+        print("n", count, correct, "{:.1f}".format(100 * correct / count), '%')
+
+
+def removeInvalidGames(games, yMetric):
+    return [x for x in games if x[yMetric] is not None]
+
+
+def removeAllButTeamsFromNnAr(games):
+    for game in games:
+        game[C.x] = game[C.x][0:60]
+        # print(game[C.x])
+    return games
+
+
+def doEverything(HP, minSeason=2015, maxSeason=2019):
     games = json.load(open('data/preparedWithNnArrays.json'))
     setDatetimePythonDate(games)
+    games = removeInvalidGames(games, Y_METRIC)
+    # games = removeAllButTeamsFromNnAr(games)
+    # exit()
     mDateGames = get_mDateGames(games)
 
     datePrev = datetime.datetime(2000, 1, 1).date()
-    # trainingData = {}
-    # trainingData[date] = {'X': X, 'y': y} #was in loop below
+
+    allYExp = []  # numpy.zeros(0)
+    allYActual = []  # numpy.zeros(0)
 
     for i, game in enumerate(games):
         if game[C.season] > maxSeason:
             break
+        if game[C.season] < minSeason:
+            continue
         if i < MIN_PREV_GAMES:
             continue
         date = game['pythonDate'].date()
+        # if date.month > 5: #!= 3:  # and date.month != 3:
+        #     continue
+        if date.month != 3:  # and date.month != 3:
+            continue
 
         if date == datePrev:
             continue
@@ -156,19 +232,22 @@ def doEverything(maxSeason=2019):
             datePrev = date
 
         x_arrays, y_values = getTrainingData(i, games, MAX_DAYS_LOOKBACK)
-
         currentDayGames = mDateGames[date]
         test_x_list, test_y_list = getTestData(currentDayGames)
 
         X, y, test_X, test_y = toNumpy(x_arrays, y_values, test_x_list, test_y_list)
+
         print(date, X.shape, y.shape, test_X.shape, test_y.shape)
 
-        # return trainingData
+        y_exp, y_act = doML(X, y, test_X, test_y)
+        allYExp += y_exp[:, 0].tolist()
+        allYActual += y_act.tolist()
+
+        printResults(allYExp, allYActual)
 
 
 #####################################################################################################################################
 # https://stackoverflow.com/questions/20548628/how-to-do-parallel-programming-in-python ?
-# https://towardsdatascience.com/building-a-deep-learning-model-using-keras-1548ca149d37
 
 
 def getTrainingDataForFutureDate(date, mDateTrainingData):
@@ -201,7 +280,7 @@ def getTrainingDataForFutureDate(date, mDateTrainingData):
 #         test_y = game[Y_METRIC]
 
 
-mDateTrainingData = doEverything(2015)
+mDateTrainingData = doEverything(2015, 2015)
 
 # d = datetime.date(2014, 10, 10)
 
