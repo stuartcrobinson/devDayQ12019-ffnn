@@ -19,37 +19,22 @@ MIN_PREV_GAMES = 70
 MAX_DAYS_LOOKBACK = 365
 
 
-def incrementHistoricalCount(numTeamPastGames, nickname):
-    if nickname in numTeamPastGames:
-        numTeamPastGames[nickname] += 1
-    else:
-        numTeamPastGames[nickname] = 1
-
-
-#todo don't build X per game!!!! build per DAY
+# todo don't build X per game!!!! build per DAY
 # ugh okay how to determine if new day ...
 
 def main():
     games = json.load(open('data/preparedWithNnArrays.json'))
 
-    numTeamPastGames = {}
-
     for i, game in enumerate(games):
-        # print(i, obj)
-        print('hi')
         game['pythonDate'] = _3.buildDateForObj(game)
-        away = game[C.away_team_nickname]
-        home = game[C.home_team_nickname]
-        incrementHistoricalCount(numTeamPastGames, home)
-        incrementHistoricalCount(numTeamPastGames, away)
-        if numTeamPastGames[home] < MIN_HISTORICAL_GAMES or numTeamPastGames[away] < MIN_HISTORICAL_GAMES:
+
+        if i < MIN_PREV_GAMES:
             continue
 
         x_arrays = []
         y_values = []
 
         date = game['pythonDate'].date()
-
 
         k = i
         while k >= 0 and _3.daysBetween(game, games[k]) < MAX_DAYS_LOOKBACK:
@@ -69,6 +54,7 @@ def main():
         # print(y)
         print(game[C.date])
 
+
 # main()
 
 
@@ -79,5 +65,6 @@ print(d1)
 print(d2)
 print(d1.day)
 print(d1.date())
+print(str(d1.date()))
 print((d1 - d2).days)
 print((d1.date() - d2.date()).days)
