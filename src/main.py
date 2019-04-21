@@ -1,8 +1,13 @@
-import numpy
-import constants as C
-import json
-import _3_addArraysToPrepdData as _3
 import datetime
+import json
+
+import random
+import numpy
+
+import _3_addArraysToPrepdData as _3
+import constants as C
+
+#
 
 # build X for keras
 
@@ -18,6 +23,8 @@ MIN_HISTORICAL_GAMES = 5
 MIN_PREV_GAMES = 70
 MAX_DAYS_LOOKBACK = 365
 
+Y_METRIC = C.y_isOverFinal
+
 
 # todo don't build X per game!!!! build per DAY
 # ugh okay how to determine if new day ...
@@ -26,10 +33,6 @@ MAX_DAYS_LOOKBACK = 365
 def setDatetimePythonDate(games):
     for game in games:
         game['pythonDate'] = _3.buildDateForObj(game)
-
-
-def asdf():
-    return 1, 2
 
 
 #           - RECENCY_BIAS_PARAMETER - 5x for past 2 days, 4x for past week, 3x for past month, 2x for past 2 months, 1x for past MAX_DAYS_LOOKBACK
@@ -43,6 +46,14 @@ def getRecencyBiasFactor(numDaysAgo):
     if numDaysAgo <= 62:
         return 2
     return 1
+
+
+# print(shuffleTogether([1, 2, 3, 4], [11, 22, 33, 44])) #to check
+def shuffleTogether(a, b):
+    c = list(zip(a, b))
+    random.shuffle(c)
+    a, b = zip(*c)
+    return a, b
 
 
 def getTrainingData(i, games, maxDaysLookback):
@@ -62,72 +73,43 @@ def getTrainingData(i, games, maxDaysLookback):
         if gameIter[C.y_isOverFinal] is not None:
             for _ in range(getRecencyBiasFactor(numDaysAgo)):
                 x_arrays.append(gameIter[C.x])
-                y_values.append(gameIter[C.y_isOverFinal])
+                y_values.append(gameIter[Y_METRIC])
+    # shuffle doesnt take much extra time.  important so validation data selected randomly as opposed to most recent (MOST IMPORTANT games)
+    x_arrays, y_values = shuffleTogether(x_arrays, y_values)
     return x_arrays, y_values
 
 
-def buildAllTrainingData(maxSeason=2019):
-    games = json.load(open('data/preparedWithNnArrays.json'))
-    setDatetimePythonDate(games)
+def getTestData(games):
+    x_arrays = []
+    y_values = []
+    for game in games:
+        x_arrays.append(game[C.x])
+        y_values.append(game[Y_METRIC])
+    return x_arrays, y_values
 
-    datePrev = datetime.datetime(2000, 1, 1).date()
-    trainingData = {}
 
-    for i, game in enumerate(games):
-        if game[C.season] > maxSeason:
-            break
-        if i < MIN_PREV_GAMES:
-            continue
-        date = game['pythonDate'].date()
-        # print(date)
-
-        # okay now loop back until it's a previous day and then start adding arrays to x_arrays etc
-
-        if date == datePrev:
-            continue
+def get_mDateGames(games):
+    mDateGames = {}
+    for game in games:
+        datestr = (game['pythonDate'].date())
+        if datestr in mDateGames:
+            mDateGames[datestr].append(game)
         else:
-            datePrev = date
-
-        x_arrays, y_values = getTrainingData(i, games, MAX_DAYS_LOOKBACK)
-
-        X = numpy.array(x_arrays)
-        y = numpy.array(y_values)
-        print(date, X.shape, y.shape)
-        trainingData[date] = {'X': X, 'y': y}
-    return trainingData
+            mDateGames[datestr] = [game]
+    return mDateGames
 
 
-#####################################################################################################################################
-# https://stackoverflow.com/questions/20548628/how-to-do-parallel-programming-in-python ?
+def toNumpy(x_arrays, y_values, test_x_list, test_y_list):
+    return numpy.array(x_arrays), numpy.array(y_values), numpy.array(test_x_list), numpy.array(test_y_list),
 
+
+#
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.callbacks import EarlyStopping
 
-mDateTrainingData = buildAllTrainingData(2015)
 
-games = json.load(open('data/preparedWithNnArrays.json'))
-setDatetimePythonDate(games)
-
-
-def getTrainingDataForFutureDate(date, mDateTrainingData):
-    mostRecentDateInTrainingDataKeys = date - datetime.timedelta(days=1)
-    while mostRecentDateInTrainingDataKeys not in mDateTrainingData.keys():
-        mostRecentDateInTrainingDataKeys = mostRecentDateInTrainingDataKeys - datetime.timedelta(days=1)
-        if mostRecentDateInTrainingDataKeys.year < 2014:
-            return None
-    return mDateTrainingData[mostRecentDateInTrainingDataKeys]
-
-
-for i, game in enumerate(games):
-    date = game['pythonDate'].date()
-    trainingData = getTrainingDataForFutureDate(date, mDateTrainingData)
-    if trainingData is None:
-        continue
-
-    X = trainingData['X']
-    y = trainingData['y']
-
+def doML(X, y, test_X, test_y):
     # create model
     model = Sequential()
 
@@ -139,14 +121,89 @@ for i, game in enumerate(games):
     model.add(Dense(n_cols, activation='relu'))
     model.add(Dense(1))
 
+    # compile model using mse as a measure of model performance
+    model.compile(optimizer='adam', loss='mean_squared_error')
+
     # set early stopping monitor so the model stops training when it won't improve anymore
     early_stopping_monitor = EarlyStopping(patience=3)
 
-    #train model
-    model.fit(train_X, train_y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
+    # train model
+    model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
 
-    
-d = datetime.date(2014, 10, 10)
+    # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
+    test_y_predictions = model.predict(test_X)
+
+
+def doEverything(maxSeason=2019):
+    games = json.load(open('data/preparedWithNnArrays.json'))
+    setDatetimePythonDate(games)
+    mDateGames = get_mDateGames(games)
+
+    datePrev = datetime.datetime(2000, 1, 1).date()
+    # trainingData = {}
+    # trainingData[date] = {'X': X, 'y': y} #was in loop below
+
+    for i, game in enumerate(games):
+        if game[C.season] > maxSeason:
+            break
+        if i < MIN_PREV_GAMES:
+            continue
+        date = game['pythonDate'].date()
+
+        if date == datePrev:
+            continue
+        else:
+            datePrev = date
+
+        x_arrays, y_values = getTrainingData(i, games, MAX_DAYS_LOOKBACK)
+
+        currentDayGames = mDateGames[date]
+        test_x_list, test_y_list = getTestData(currentDayGames)
+
+        X, y, test_X, test_y = toNumpy(x_arrays, y_values, test_x_list, test_y_list)
+        print(date, X.shape, y.shape, test_X.shape, test_y.shape)
+
+        # return trainingData
+
+
+#####################################################################################################################################
+# https://stackoverflow.com/questions/20548628/how-to-do-parallel-programming-in-python ?
+# https://towardsdatascience.com/building-a-deep-learning-model-using-keras-1548ca149d37
+
+
+def getTrainingDataForFutureDate(date, mDateTrainingData):
+    mostRecentDateInTrainingDataKeys = date - datetime.timedelta(days=1)
+    while mostRecentDateInTrainingDataKeys not in mDateTrainingData.keys():
+        mostRecentDateInTrainingDataKeys = mostRecentDateInTrainingDataKeys - datetime.timedelta(days=1)
+        if mostRecentDateInTrainingDataKeys.year < 2014:
+            return None
+    return mDateTrainingData[mostRecentDateInTrainingDataKeys]
+
+
+#
+# def doMLstuff():
+#
+#     mDateTrainingData = buildAllTrainingData(2015)
+#
+#     games = json.load(open('data/preparedWithNnArrays.json'))
+#     setDatetimePythonDate(games)
+#
+#     for i, game in enumerate(games):
+#         date = game['pythonDate'].date()
+#         trainingData = getTrainingDataForFutureDate(date, mDateTrainingData)
+#         if trainingData is None:
+#             continue
+#
+#         X = trainingData['X']
+#         y = trainingData['y']
+#
+#         test_X = game[C.x]
+#         test_y = game[Y_METRIC]
+
+
+mDateTrainingData = doEverything(2015)
+
+# d = datetime.date(2014, 10, 10)
 
 # print(d)
 # print(d - datetime.timedelta(days=1))
