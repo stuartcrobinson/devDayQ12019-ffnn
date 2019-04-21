@@ -147,6 +147,14 @@ def buildNnInputArray(i, obj, dataAr, m_i_team, m_i_station, m_team_i, m_station
     return result
 
 
+def getSeason(date):
+    year = date[0]
+    month = date[1]
+    if month > 7:
+        return year
+    else:
+        return year - 1
+
 def main():
 
     data = json.load(open('data/prepared.json'))
@@ -181,6 +189,7 @@ def main():
 
     for i, obj in enumerate(dataAr):
         nnInputArray = buildNnInputArray(i, obj, dataAr, m_i_team, m_i_station, m_team_i, m_station_i)
+        obj['season'] = getSeason(obj['date'])
         obj['y_isOverInit'] = getIsOverInit(obj)
         obj['y_isOverFinal'] = getIsOverFinal(obj)
         obj['y_homeBeatSpreadInit'] = getHomeBeatSpreadInit(obj)
@@ -192,3 +201,6 @@ def main():
 
     with open('data/preparedWithNnArrays.json', 'w') as outfile:
         json.dump(obj=dataAr, fp=outfile, indent=4, separators=(',', ': '))
+
+
+main()

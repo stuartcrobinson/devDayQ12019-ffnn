@@ -22,49 +22,76 @@ MAX_DAYS_LOOKBACK = 365
 # todo don't build X per game!!!! build per DAY
 # ugh okay how to determine if new day ...
 
-def main():
-    games = json.load(open('data/preparedWithNnArrays.json'))
 
-    for i, game in enumerate(games):
+def setDatetimePythonDate(games):
+    for game in games:
         game['pythonDate'] = _3.buildDateForObj(game)
 
-        if i < MIN_PREV_GAMES:
+
+def asdf():
+    return 1, 2
+
+
+def getRecencyBiasFactor(numDaysAgo):
+    # todo
+    return 1
+
+
+def getTrainingData(i, games, MAX_DAYS_LOOKBACK):
+    game = games[i]
+    x_arrays = []
+    y_values = []
+    k = i
+    while k >= 0:
+        k -= 1
+        gameIter = games[k]
+        numDaysAgo = _3.daysBetween(game, gameIter)
+        if numDaysAgo < 1:
             continue
-
-        x_arrays = []
-        y_values = []
-
-        date = game['pythonDate'].date()
-
-        k = i
-        while k >= 0 and _3.daysBetween(game, games[k]) < MAX_DAYS_LOOKBACK:
-            k -= 1
-            gameIter = games[k]
-            if _3.daysBetween(game, gameIter) < 1:
-                continue
-            # okay so gameIter is a valid game, so add it to X
-            if gameIter[C.y_isOverFinal] is not None:
+        if numDaysAgo > MAX_DAYS_LOOKBACK:
+            break
+        # okay so gameIter is a valid game, so add it to X
+        if gameIter[C.y_isOverFinal] is not None:
+            for _ in range(getRecencyBiasFactor(numDaysAgo)):
                 x_arrays.append(gameIter[C.x])
                 y_values.append(gameIter[C.y_isOverFinal])
+    return x_arrays, y_values
+
+
+def buildAllTrainingData(maxSeason=2019):
+    games = json.load(open('data/preparedWithNnArrays.json'))
+    setDatetimePythonDate(games)
+
+    datePrev = datetime.datetime(2000, 1, 1).date()
+    trainingData = {}
+
+    for i, game in enumerate(games):
+        if game[C.season] > maxSeason:
+            break
+        if i < MIN_PREV_GAMES:
+            continue
+        date = game['pythonDate'].date()
+        print(date)
+
+        # okay now loop back until it's a previous day and then start adding arrays to x_arrays etc
+
+        if date == datePrev:
+            continue
+        else:
+            datePrev = date
+
+        x_arrays, y_values = getTrainingData(i, games, MAX_DAYS_LOOKBACK)
 
         X = numpy.array(x_arrays)
         y = numpy.array(y_values)
-        # print(game)
-        # print(X)
-        # print(y)
-        print(game[C.date])
+        trainingData[str(date)] = {'X': X, 'y': y}
+    return trainingData
 
 
-# main()
+mDateTrainingData = buildAllTrainingData(2015)
 
+# with open('data/mDateTrainingData.json', 'w') as outfile:
+#     json.dump(obj=mDateTrainingData, fp=outfile, indent=4, separators=(',', ': '))
 
-d1 = datetime.datetime(2015, 10, 31, 10)
-d2 = datetime.datetime(2015, 10, 30, 11)
-
-print(d1)
-print(d2)
-print(d1.day)
-print(d1.date())
-print(str(d1.date()))
-print((d1 - d2).days)
-print((d1.date() - d2.date()).days)
+# print('done')
+print(mDateTrainingData)

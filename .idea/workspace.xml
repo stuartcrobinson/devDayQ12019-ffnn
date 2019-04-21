@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fbfe3a6-f425-4965-8773-04d0c9d256b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/data/preparedWithNnArrays.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/preparedWithNnArrays.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,29 +39,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            <state relative-caret-position="350">
+              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/preparedWithNnArrays.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="76772" column="28" selection-start-line="76772" selection-start-column="24" selection-end-line="76772" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -75,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1863">
-              <caret line="165" column="17" lean-forward="true" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="17" />
+            <state relative-caret-position="874">
+              <caret line="203" lean-forward="true" selection-start-line="200" selection-end-line="203" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -91,8 +76,9 @@
       <find>getOddsObj</find>
       <find>4x</find>
       <find>daysbe</find>
-      <find>buildDateForObj</find>
+      <find>pythonDate</find>
       <find>null</find>
+      <find>buildDateForObj</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,6 +92,7 @@
         <option value="$PROJECT_DIR$/src/buildPreparedData.py" />
         <option value="$PROJECT_DIR$/src/addArraysToPrepdData.py" />
         <option value="$PROJECT_DIR$/src/roadmap.txt" />
+        <option value="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" />
         <option value="$PROJECT_DIR$/src/constants.py" />
         <option value="$PROJECT_DIR$/src/main.py" />
       </list>
@@ -140,11 +127,6 @@
             <path>
               <item name="devDayQ12019-ffnn" type="b2602c69:ProjectViewProjectNode" />
               <item name="devDayQ12019-ffnn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="devDayQ12019-ffnn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="devDayQ12019-ffnn" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="devDayQ12019-ffnn" type="b2602c69:ProjectViewProjectNode" />
@@ -252,30 +234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="165" column="17" lean-forward="true" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/preparedWithNnArrays.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="76772" column="28" selection-start-line="76772" selection-start-column="24" selection-end-line="76772" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2019.1/python_stubs/-1199943127/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -283,10 +241,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/preparedWithNnArrays.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="76759" column="10" lean-forward="true" selection-start-line="76759" selection-start-column="10" selection-end-line="76759" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="203" lean-forward="true" selection-start-line="200" selection-end-line="203" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        <state relative-caret-position="350">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
