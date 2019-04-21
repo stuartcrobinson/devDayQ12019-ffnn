@@ -32,12 +32,20 @@ def asdf():
     return 1, 2
 
 
+#           - RECENCY_BIAS_PARAMETER - 5x for past 2 days, 4x for past week, 3x for past month, 2x for past 2 months, 1x for past MAX_DAYS_LOOKBACK
 def getRecencyBiasFactor(numDaysAgo):
-    # todo
+    if numDaysAgo <= 2:
+        return 5
+    if numDaysAgo <= 7:
+        return 4
+    if numDaysAgo <= 31:
+        return 3
+    if numDaysAgo <= 62:
+        return 2
     return 1
 
 
-def getTrainingData(i, games, MAX_DAYS_LOOKBACK):
+def getTrainingData(i, games, maxDaysLookback):
     game = games[i]
     x_arrays = []
     y_values = []
@@ -48,7 +56,7 @@ def getTrainingData(i, games, MAX_DAYS_LOOKBACK):
         numDaysAgo = _3.daysBetween(game, gameIter)
         if numDaysAgo < 1:
             continue
-        if numDaysAgo > MAX_DAYS_LOOKBACK:
+        if numDaysAgo > maxDaysLookback:
             break
         # okay so gameIter is a valid game, so add it to X
         if gameIter[C.y_isOverFinal] is not None:
