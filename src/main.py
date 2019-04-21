@@ -79,7 +79,7 @@ def buildAllTrainingData(maxSeason=2019):
         if i < MIN_PREV_GAMES:
             continue
         date = game['pythonDate'].date()
-        print(date)
+        # print(date)
 
         # okay now loop back until it's a previous day and then start adding arrays to x_arrays etc
 
@@ -92,14 +92,61 @@ def buildAllTrainingData(maxSeason=2019):
 
         X = numpy.array(x_arrays)
         y = numpy.array(y_values)
-        trainingData[str(date)] = {'X': X, 'y': y}
+        print(date, X.shape, y.shape)
+        trainingData[date] = {'X': X, 'y': y}
     return trainingData
 
 
+#####################################################################################################################################
+# https://stackoverflow.com/questions/20548628/how-to-do-parallel-programming-in-python ?
+
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.callbacks import EarlyStopping
+
 mDateTrainingData = buildAllTrainingData(2015)
 
-# with open('data/mDateTrainingData.json', 'w') as outfile:
-#     json.dump(obj=mDateTrainingData, fp=outfile, indent=4, separators=(',', ': '))
+games = json.load(open('data/preparedWithNnArrays.json'))
+setDatetimePythonDate(games)
 
-# print('done')
-print(mDateTrainingData)
+
+def getTrainingDataForFutureDate(date, mDateTrainingData):
+    mostRecentDateInTrainingDataKeys = date - datetime.timedelta(days=1)
+    while mostRecentDateInTrainingDataKeys not in mDateTrainingData.keys():
+        mostRecentDateInTrainingDataKeys = mostRecentDateInTrainingDataKeys - datetime.timedelta(days=1)
+        if mostRecentDateInTrainingDataKeys.year < 2014:
+            return None
+    return mDateTrainingData[mostRecentDateInTrainingDataKeys]
+
+
+for i, game in enumerate(games):
+    date = game['pythonDate'].date()
+    trainingData = getTrainingDataForFutureDate(date, mDateTrainingData)
+    if trainingData is None:
+        continue
+
+    X = trainingData['X']
+    y = trainingData['y']
+
+    # create model
+    model = Sequential()
+
+    # get number of columns in training data
+    n_cols = X.shape[1]
+
+    # add model layers
+    model.add(Dense(n_cols, activation='relu', input_shape=(n_cols,)))
+    model.add(Dense(n_cols, activation='relu'))
+    model.add(Dense(1))
+
+    # set early stopping monitor so the model stops training when it won't improve anymore
+    early_stopping_monitor = EarlyStopping(patience=3)
+
+    #train model
+    model.fit(train_X, train_y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
+
+    
+d = datetime.date(2014, 10, 10)
+
+# print(d)
+# print(d - datetime.timedelta(days=1))
