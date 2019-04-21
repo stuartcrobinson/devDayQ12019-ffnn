@@ -87,7 +87,7 @@ for each element Obj,
   get prediction for current element Obj.  check whether it was correct.  store a tuple of the prediction and the actual value in an array.
         store the tuple so later we can see if different cutoffs from numeric result gave better results.
 
-RECENCY_BIAS_PARAMETER - something like 5x for past 2 days, 4x for past week, 3x for past month, 2x for past 2 months, 1x for past year
+RECENCY_BIAS_PARAMETER - 5x for past 2 days, 4x for past week, 3x for past month, 2x for past 2 months, 1x for past year
 run the model once per day.
 WHEN - idk?? - have to stop it after after a few seconds tho.  10 seconds per day would take 30 minutes for a season :/
 
