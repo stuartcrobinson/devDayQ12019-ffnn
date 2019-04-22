@@ -14,7 +14,11 @@ from tensorflow.python.keras.layers import Dropout
 from tensorflow.python.keras import backend
 import gc
 
+
+from tensorflow.python.keras.utils import plot_model
+
 #
+
 
 # build X for keras
 
@@ -30,11 +34,12 @@ MIN_HISTORICAL_GAMES = 5
 MIN_PREV_GAMES = 300
 MAX_DAYS_LOOKBACK = 365
 
+
 # Y_METRIC = C.y_isOverFinal
 # Y_METRIC = C.y_homeBeatSpreadFinal
 
 
-Y_METRIC = C.y_homeDidWin
+# Y_METRIC = C.y_homeDidWin
 
 
 # todo don't build X per game!!!! build per DAY
@@ -84,18 +89,43 @@ def getTrainingData(hp, i, games):
         if gameIter[C.y_isOverFinal] is not None:
             for _ in range(getRecencyBiasFactor(hp, numDaysAgo)):
                 x_arrays.append(gameIter[C.x])
-                y_values.append(gameIter[Y_METRIC])
+                y_values.append(gameIter[hp.y_metric])
     # shuffle doesnt take much extra time.  important so validation data selected randomly as opposed to most recent (MOST IMPORTANT games)
     x_arrays, y_values = shuffleTogether(x_arrays, y_values)
     return x_arrays, y_values
 
 
-def getTestData(games):
+def getTrainingDataSingleModel(hp, i, games):
+    game = games[i]
+    x_arrays = []
+    y_values = []
+    k = i
+    prevNumDaysAgo = -1
+    while k >= 0:
+        k -= 1
+        gameIter = games[k]
+        numDaysAgo = _3.daysBetween(game, gameIter)
+        if numDaysAgo < 1:
+            continue
+        # if prevNumDaysAgo != -1 and prevNumDaysAgo != numDaysAgo:
+        #     break
+        if numDaysAgo > hp.max_days_lookback:
+            break
+        # okay so gameIter is on a diff day from i's game, but same day as other games gotten so far.
+        if gameIter[hp.y_metric] is not None:
+            for _ in range(getRecencyBiasFactor(hp, numDaysAgo)):
+                x_arrays.append(gameIter[C.x])
+                y_values.append(gameIter[hp.y_metric])
+        prevNumDaysAgo = numDaysAgo
+    return x_arrays, y_values
+
+
+def getTestData(hp, games):
     x_arrays = []
     y_values = []
     for game in games:
         x_arrays.append(game[C.x])
-        y_values.append(game[Y_METRIC])
+        y_values.append(game[hp.y_metric])
     return x_arrays, y_values
 
 
@@ -145,11 +175,16 @@ def doML(hp, model, X, y, test_X, test_y):
 
     # train model
     # model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
-    model.fit(X, y, validation_split=hp.validation_split, epochs=30, callbacks=[early_stopping_monitor])
+    model.fit(X, y, batch_size=2000, validation_split=hp.validation_split, epochs=hp.epochs,
+              callbacks=[early_stopping_monitor])
+
+    print(model.weights)
     # model.reset_metrics()
 
     # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
     test_y_predictions = model.predict(test_X)
+
+    # plot_model(model, to_file='model.png')
 
     del model
     gc.collect()
@@ -188,10 +223,27 @@ def removeInvalidGames(games, yMetric):
     return [x for x in games if x[yMetric] is not None]
 
 
-def removeAllButTeamsFromNnAr(games):
+def useOnlyTeams(games):
     for game in games:
         game[C.x] = game[C.x][0:60]
-        # print(game[C.x])
+    return games
+
+
+def dropStations(games):
+    for game in games:
+        game[C.x] = game[C.x][0:60] + game[C.x][120:]
+    return games
+
+
+def dropRecency(games):
+    for game in games:
+        game[C.x] = game[C.x][0:120]
+    return games
+
+
+def keepOnlyFirst30Elements(games):
+    for game in games:
+        game[C.x] = game[C.x][0:30]
     return games
 
 
@@ -203,6 +255,7 @@ def makeModel(hp, games):
 
     # get number of columns in training data
     n_cols = len(games[0][C.x])
+    print("ncols:", n_cols)
 
     if hp.dropout == 0:
         model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
@@ -226,8 +279,16 @@ def makeModel(hp, games):
 def doEverything(hp, minSeason=2015, maxSeason=2019):
     games = json.load(open('data/preparedWithNnArrays.json'))
     setDatetimePythonDate(games)
-    games = removeInvalidGames(games, Y_METRIC)
-    games = removeAllButTeamsFromNnAr(games)
+    games = removeInvalidGames(games, hp.y_metric)
+    if hp.dropRecencyAndStations:
+        games = useOnlyTeams(games)
+    elif hp.dropStations:
+        games = dropStations(games)
+    elif hp.dropRecency:
+        games = dropRecency(games)
+    elif hp.keepOnlyFirst30Elements:
+        games = keepOnlyFirst30Elements(games)
+
     # exit()
     mDateGames = get_mDateGames(games)
 
@@ -239,6 +300,8 @@ def doEverything(hp, minSeason=2015, maxSeason=2019):
     model = makeModel(hp, games)
 
     for i, game in enumerate(games):
+        # print(game[C.date])
+        # print(game[C.x])
         if game[C.season] > maxSeason:
             break
         if game[C.season] < minSeason:
@@ -256,9 +319,13 @@ def doEverything(hp, minSeason=2015, maxSeason=2019):
         else:
             datePrev = date
 
-        x_arrays, y_values = getTrainingData(hp, i, games)
+        # x_arrays, y_values = getTrainingData(hp, i, games)
+        x_arrays, y_values = getTrainingDataSingleModel(hp, i, games)
+
+        if len(x_arrays) == 0:
+            continue
         currentDayGames = mDateGames[date]
-        test_x_list, test_y_list = getTestData(currentDayGames)
+        test_x_list, test_y_list = getTestData(hp, currentDayGames)
 
         X, y, test_X, test_y = toNumpy(x_arrays, y_values, test_x_list, test_y_list)
 
@@ -308,17 +375,29 @@ class Hyperparameters:
     recency_bias: 'recency_bias'
     patience: 'patience'
     validation_split: 'validation_split'
+    y_metric: 'y_metric'
+    epochs: 'epochs'
+    dropStations: False
+    dropRecency: False
+    dropRecencyAndStations: False
+    keepOnlyFirst30Elements: False
 
     def toJson(self):
         return {
             'max_days_lookback': self.max_days_lookback,
             'min_prev_games': self.min_prev_games,
             'dropout': self.dropout,
+            'epochs': self.epochs,
             'dim': self.dim,
             'layers': self.layers,
             'recency_bias': self.recency_bias,
             'patience': self.patience,
             'validation_split': self.validation_split,
+            'y_metric': self.y_metric,
+            'dropStations': self.dropStations,
+            'dropRecency': self.dropRecency,
+            'dropRecencyAndStations': self.dropRecencyAndStations,
+            'keepOnlyFirst30Elements': self.keepOnlyFirst30Elements,
         }
 
 
@@ -331,14 +410,47 @@ hp.dim = 60
 hp.layers = 1
 hp.recency_bias = [5, 4, 3, 2, 1]
 hp.patience = 0
+hp.epochs = 30
 hp.validation_split = 0
+hp.y_metric = C.y_homeDidWin
+hp.dropStations = False
+hp.dropRecency = False
+hp.dropRecencyAndStations = True
+hp.keepOnlyFirst30Elements = False
 
 print(hp.toJson())
 
-hp.dropout = 0
-hp.dim = 45
-hp.recency_bias = [10, 9, 3, 2, 1]
-doEverything(hp, 2015, 2015)
+hp.dropout = 0.3
+hp.dim = 30
+hp.recency_bias = [10, 9, 8, 1, 1]
+hp.layers = 1
+hp.max_days_lookback = 300
+hp.epochs = 30
+
+# hp.recency_bias = [8, 8, 1, 1, 1]
+# hp.max_days_lookback = 17
+# hp.epochs = 6
+#
+
+doEverything(hp, 2017, 2017)
+#
+# hp.dropStations = False
+# hp.dropRecency = False
+# hp.dropRecencyAndStations = False
+# doEverything(hp, 2015, 2015)
+#
+#
+# hp.dim = 100
+#
+# hp.dropStations = True
+# hp.dropRecency = False
+# hp.dropRecencyAndStations = False
+# doEverything(hp, 2015, 2015)
+#
+# hp.dropStations = False
+# hp.dropRecency = False
+# hp.dropRecencyAndStations = False
+# doEverything(hp, 2015, 2015)
 
 # doEverything(hp, 2015, 2015)
 

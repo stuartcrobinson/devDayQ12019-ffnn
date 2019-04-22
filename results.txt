@@ -79,3 +79,270 @@ Y_METRIC = C.y_homeDidWin
 ### AFTER SWITCHING TO SINGLE MODEL METHOD ###
       {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
 63.8%  n: 821  524
+### AFTER SWITCHING TO SINGLE MODEL METHOD with only fitting on new training data ###
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+64.4%  n: 809  521
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+65.0%  n: 805  523
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+64.4%  n: 806  519
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+64.4%  n: 815  525
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+65.0%  n: 797  518
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+57.6%  n: 736  424
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+55.8%  n: 812  453
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+59.6%  n: 567  338
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+62.2%  n: 540  336
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+61.7%  n: 269  166
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+61.6%  n: 430  265
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+62.2%  n: 447  278
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+62.2%  n: 703  437
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+60.2%  n: 800  482
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+63.7%  n: 813  518
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+63.1%  n: 814  514
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+63.0%  n: 802  505
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 5, 'dim': 120, 'layers': 2, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+64.6%  n: 783  506
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 5, 'dim': 120, 'layers': 3, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+60.2%  n: 784  472
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 5, 'dim': 60, 'layers': 3, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.7%  n: 782  490
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 20, 'dim': 60, 'layers': 3, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.8%  n: 806  506
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 20, 'dim': 60, 'layers': 2, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+63.4%  n: 805  510
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 20, 'dim': 60, 'layers': 1, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.7%  n: 806  505
+      {'max_days_lookback': 36, 'min_prev_games': 300, 'dropout': 0, 'epochs': 20, 'dim': 45, 'layers': 1, 'recency_bias': [10, 10, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.0%  n: 792  491
+      {'max_days_lookback': 10, 'min_prev_games': 300, 'dropout': 0, 'epochs': 5, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.8%  n: 697  438
+      {'max_days_lookback': 10, 'min_prev_games': 300, 'dropout': 0, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.2%  n: 585  364
+      {'max_days_lookback': 10, 'min_prev_games': 300, 'dropout': 0, 'epochs': 20, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+61.2%  n: 792  485
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+64.6%  n: 813  525
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 60, 'dim': 45, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+64.0%  n: 820  525
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+65.0%  n: 812  528
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.6%  n: 802  502
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+64.5%  n: 806  520
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 2, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+64.0%  n: 810  518
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 30, 'layers': 2, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+63.4%  n: 804  510
+      {'max_days_lookback': 100, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+63.2%  n: 819  518
+      {'max_days_lookback': 100, 'min_prev_games': 300, 'dropout': 0, 'epochs': 15, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+63.9%  n: 801  512
+      {'max_days_lookback': 400, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+62.5%  n: 807  504
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 5, 1, 1], 'patience': 0, 'validation_split': 0}
+64.9%  n: 812  527
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+64.3%  n: 802  516
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 9, 1, 1], 'patience': 0, 'validation_split': 0}
+65.1%  n: 825  537
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 10, 10, 1, 1], 'patience': 0, 'validation_split': 0}
+63.9%  n: 808  516
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 10, 10, 10, 1], 'patience': 0, 'validation_split': 0}
+62.6%  n: 815  510
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 10, 10, 3, 1], 'patience': 0, 'validation_split': 0}
+63.3%  n: 814  515
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 2, 1], 'patience': 0, 'validation_split': 0}
+63.0%  n: 809  510
+      {'max_days_lookback': 100, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 2, 1], 'patience': 0, 'validation_split': 0}
+64.2%  n: 813  522
+      {'max_days_lookback': 150, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+62.5%  n: 816  510
+      {'max_days_lookback': 50, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+63.2%  n: 816  516
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+65.2%  n: 701  457
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+68.1%  n: 708  482
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.2, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+67.4%  n: 699  471
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 5, 1, 1], 'patience': 0, 'validation_split': 0}
+67.5%  n: 704  475
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.05, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+67.4%  n: 720  485
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.075, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+66.8%  n: 729  487
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0.075, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+67.9%  n: 701  476
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+66.2%  n: 714  473
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+67.4%  n: 709  478
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 10, 10, 1, 1], 'patience': 0, 'validation_split': 0}
+67.7%  n: 737  499
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+67.5%  n: 714  482
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+68.2%  n: 716  488
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0}
+67.3%  n: 712  479
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin'}
+68.1%  n: 720  490
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverFinal'}
+52.6%  n: 593  312
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverFinal'}
+52.5%  n: 577  303
+#with stations and recency
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverFinal'}
+55.2%  n: 560  309
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverFinal'}
+52.2%  n: 638  333
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'useStations': True}
+48.4%  n: 639  309
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'useStations': False}
+46.3%  n: 628  291
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+46.4%  n: 642  298
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+49.1%  n: 523  257
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': True, 'dropRecencyAndStations': False}
+49.1%  n: 694  341
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 120, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+46.6%  n: 654  305
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+45.6%  n: 577  263
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+45.2%  n: 418  189
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': True, 'dropRecencyAndStations': False}
+46.7%  n: 655  306
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+47.4%  n: 574  272
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+47.2%  n: 566  267
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+46.9%  n: 384  180
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': True, 'dropRecencyAndStations': False}
+48.6%  n: 636  309
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadFinal', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False}
+46.3%  n: 546  253
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+53.3%  n: 580  309
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+54.2%  n: 515  279
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': True, 'dropRecencyAndStations': False}
+54.3%  n: 656  356
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False}
+53.7%  n: 568  305
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 80, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+52.5%  n: 611  321
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 80, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+55.6%  n: 549  305
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 80, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': True, 'dropRecencyAndStations': False}
+52.8%  n: 691  365
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 80, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False}
+55.3%  n: 617  341
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+54.9%  n: 514  282
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 60, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False}
+53.9%  n: 614  331
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 100, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+54.0%  n: 563  304
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 100, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False}
+53.5%  n: 637  341
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 80, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+54.2%  n: 526  285
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 80, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': True, 'dropRecency': False, 'dropRecencyAndStations': False}
+51.4%  n: 3906  2006
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+61.2%  n: 3536  2165
+      {'max_days_lookback': 30, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+62.0%  n: 3028  1877
+      {'max_days_lookback': 3, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+63.1%  n: 2708  1709
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+63.5%  n: 2735  1736
+
+
+#without double home team representation
+
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+65.7%  n: 2944  1933
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True}
+52.1%  n: 1043  543
+
+#with double home team representation
+
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False, 'keepOnlyFirst30Elements': True}
+52.2%  n: 136  71
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 30, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False, 'keepOnlyFirst30Elements': True}
+54.4%  n: 68  37
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 20, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False, 'keepOnlyFirst30Elements': True}
+42.3%  n: 26  11
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 35, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False, 'keepOnlyFirst30Elements': True}
+52.9%  n: 140  74
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 30, 'layers': 2, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': False, 'keepOnlyFirst30Elements': True}
+46.1%  n: 152  70
+
+#without double home team representation
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 2, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+65.8%  n: 538  354
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 3, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+68.2%  n: 544  371
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 3, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+65.8%  n: 2989  1967
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 3, 'dim': 45, 'layers': 1, 'recency_bias': [2, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.0%  n: 3023  1995
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 3, 'dim': 45, 'layers': 1, 'recency_bias': [4, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.6%  n: 503  335
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 3, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.2%  n: 533  353
+      {'max_days_lookback': 7, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 6, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+67.1%  n: 589  395
+      {'max_days_lookback': 17, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 6, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+69.4%  n: 628  436
+      {'max_days_lookback': 17, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 6, 'dim': 45, 'layers': 1, 'recency_bias': [8, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+64.7%  n: 3173  2053
+      {'max_days_lookback': 17, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 6, 'dim': 45, 'layers': 1, 'recency_bias': [8, 8, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+65.4%  n: 3148  2060
+      {'max_days_lookback': 17, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 6, 'dim': 45, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+64.8%  n: 3159  2048
+      {'max_days_lookback': 17, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 6, 'dim': 45, 'layers': 1, 'recency_bias': [8, 8, 1, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeBeatSpreadInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+48.9%  n: 2247  1098
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+70.4%  n: 717  505
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+70.4%  n: 732  515
+      {'max_days_lookback': 200, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+69.9%  n: 730  510
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+63.1%  n: 1164  735
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.0%  n: 1200  792
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [30, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+65.7%  n: 1207  793
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [100, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+63.4%  n: 1239  785
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 45, 'layers': 1, 'recency_bias': [100, 100, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+61.7%  n: 1291  796
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 55, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+65.8%  n: 1200  790
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+65.7%  n: 1170  769
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.2, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.0%  n: 1111  733
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.3, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.6%  n: 1068  711

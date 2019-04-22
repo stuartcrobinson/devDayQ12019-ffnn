@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fbfe3a6-f425-4965-8773-04d0c9d256b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pctFavoredTeamWins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/preparedWithNnArrays.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/preparedWithNnArrays.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_2_buildPreparedData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-572">
-              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+            <state relative-caret-position="422">
+              <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -38,29 +41,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-363">
-              <caret line="200" selection-start-line="200" selection-end-line="200" />
+            <state relative-caret-position="572">
+              <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="887">
-              <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python3.6/site-packages/keras/engine/training.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320">
-              <caret line="831" column="12" selection-start-line="831" selection-start-column="12" selection-end-line="831" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -77,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="724">
-              <caret line="197" column="25" selection-start-line="197" selection-start-column="13" selection-end-line="197" selection-end-column="25" />
+            <state relative-caret-position="553">
+              <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -90,14 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>daysbe</find>
-      <find>pythonDate</find>
-      <find>null</find>
-      <find>mDateTrainingData</find>
-      <find>shuffle</find>
-      <find>doEv</find>
-      <find>Cutoff</find>
-      <find>EarlySt</find>
       <find>Early</find>
       <find>cutoff</find>
       <find>dropou</find>
@@ -114,12 +91,20 @@
       <find>format</find>
       <find>getResultsStr</find>
       <find>.day</find>
-      <find>buildDateForObj</find>
       <find>month</find>
       <find>model.pre</find>
       <find>clear_</find>
-      <find>doML</find>
       <find>global</find>
+      <find>getTrainingDataSingleModel</find>
+      <find>batc</find>
+      <find>patience</find>
+      <find>getTestData</find>
+      <find>useStations</find>
+      <find>dropTeamsAndStations</find>
+      <find>Dropout</find>
+      <find>buildDateForObj</find>
+      <find>doML</find>
+      <find>plot</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,22 +118,11 @@
         <option value="$PROJECT_DIR$/src/buildPreparedData.py" />
         <option value="$PROJECT_DIR$/src/addArraysToPrepdData.py" />
         <option value="$PROJECT_DIR$/src/roadmap.txt" />
-        <option value="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" />
         <option value="$PROJECT_DIR$/src/constants.py" />
-        <option value="$PROJECT_DIR$/src/main.py" />
+        <option value="$PROJECT_DIR$/src/pctFavoredTeamWins.py" />
+        <option value="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" />
         <option value="$PROJECT_DIR$/results.txt" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/devDayQ12019-ffnn.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/dictionaries/stuartrobinson.xml" />
-        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/src/main.py" />
       </list>
     </option>
   </component>
@@ -169,6 +143,11 @@
             <path>
               <item name="devDayQ12019-ffnn" type="b2602c69:ProjectViewProjectNode" />
               <item name="devDayQ12019-ffnn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devDayQ12019-ffnn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devDayQ12019-ffnn" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="devDayQ12019-ffnn" type="b2602c69:ProjectViewProjectNode" />
@@ -256,16 +235,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_2_buildPreparedData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-572">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/old_preparedWithNnArrays.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -273,20 +242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="89" column="29" selection-start-line="89" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/preparedWithNnArrays.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="76759" column="10" lean-forward="true" selection-start-line="76759" selection-start-column="10" selection-end-line="76759" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/keras/engine/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320">
-          <caret line="831" column="12" selection-start-line="831" selection-start-column="12" selection-end-line="831" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -318,16 +273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="197" column="25" selection-start-line="197" selection-start-column="13" selection-end-line="197" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -335,17 +280,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/preparedWithNnArrays.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="76761" column="13" lean-forward="true" selection-start-line="76761" selection-start-column="13" selection-end-line="76761" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_2_buildPreparedData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/results.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="887">
-          <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+        <state relative-caret-position="579">
+          <caret line="285" lean-forward="true" selection-start-line="285" selection-end-line="285" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-823">
+          <caret line="827" column="12" selection-start-line="827" selection-start-column="12" selection-end-line="827" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pctFavoredTeamWins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/optimizers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
+        <state relative-caret-position="572">
+          <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

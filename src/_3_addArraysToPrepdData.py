@@ -127,7 +127,7 @@ def buildNnInputArray(i, obj, dataAr, m_i_team, m_i_station, m_team_i, m_station
         station_i_ar.append(m_station_i[stationName])
 
     xTeams[away_i] = 1
-    xTeams[home_i] = 1
+    # xTeams[home_i] = 1
     xTeamsIsHome[home_i] = 1
     for j in station_i_ar:
         xStations[j] = 1
