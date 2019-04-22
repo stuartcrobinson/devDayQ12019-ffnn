@@ -295,56 +295,65 @@ hp.validation_split = 0
 
 print(hp.toJson())
 
-doEverything(hp, 2015, 2015)
+# doEverything(hp, 2015, 2015)
+#
+# hp.max_days_lookback = 100
+# doEverything(hp, 2015, 2015)
+#
+# hp.max_days_lookback = 50
+# doEverything(hp, 2015, 2015)
 
-hp.max_days_lookback = 100
-doEverything(hp, 2015, 2015)
+# hp.max_days_lookback = 300
+# hp.dropout = 0
+# doEverything(hp, 2015, 2015)
+#
+# hp.dropout = 0.2
+# doEverything(hp, 2015, 2015)
+#
+# hp.dropout = 0.4
+# doEverything(hp, 2015, 2015)
 
-hp.max_days_lookback = 50
-doEverything(hp, 2015, 2015)
+# hp.dropout = 0.1
+# hp.dim = 120
+# doEverything(hp, 2015, 2015)
+#
+# hp.dim = 30
+# doEverything(hp, 2015, 2015)
+#
+# hp.dim = 60
+# hp.layers = 2
+# doEverything(hp, 2015, 2015)
 
-hp.max_days_lookback = 300
-hp.dropout = 0
-doEverything(hp, 2015, 2015)
+# hp.layers = 3
+# doEverything(hp, 2015, 2015)
+#
+# hp.layers = 4
+# doEverything(hp, 2015, 2015)
+#
+# hp.layers = 1
+# doEverything(hp, 2015, 2015)
 
-hp.dropout = 0.2
-doEverything(hp, 2015, 2015)
+# hp.layers = 3
+# hp.recency_bias = [8, 4, 3, 2, 1]
+# doEverything(hp, 2015, 2015)
+#
+# hp.recency_bias = [8, 7, 2, 2, 1]
+# doEverything(hp, 2015, 2015)
+#
+# hp.recency_bias = [5, 4, 3, 2, 1]
+# hp.patience = 2
+# doEverything(hp, 2015, 2015)
+#
+# hp.patience = 4
+# doEverything(hp, 2015, 2015)
+#
+# hp.patience = 6
+# doEverything(hp, 2015, 2015)
 
-hp.dropout = 0.4
-doEverything(hp, 2015, 2015)
 
-hp.dropout = 0.1
-hp.dim = 120
-doEverything(hp, 2015, 2015)
 
-hp.dim = 30
-doEverything(hp, 2015, 2015)
 
-hp.dim = 120
-hp.layers = 2
-doEverything(hp, 2015, 2015)
-
-hp.layers = 3
-doEverything(hp, 2015, 2015)
-
-hp.layers = 4
-doEverything(hp, 2015, 2015)
-
-hp.layers = 1
-doEverything(hp, 2015, 2015)
-
-hp.recency_bias = [8, 4, 3, 2, 1]
-doEverything(hp, 2015, 2015)
-
-hp.recency_bias = [8, 7, 2, 2, 1]
-doEverything(hp, 2015, 2015)
-
-hp.recency_bias = [5, 4, 3, 2, 1]
-hp.patience = 2
-doEverything(hp, 2015, 2015)
-
-hp.patience = 4
-doEverything(hp, 2015, 2015)
-
-hp.patience = 6
-doEverything(hp, 2015, 2015)
+# 2016-02-28 (1147, 60) (1147,) (7, 60) (7,)
+# libc++abi.dylib: terminating with uncaught exception of type std::__1::system_error: thread constructor failed: Resource temporarily unavailable
+# fish: 'python3 src/main.py' terminated by signal SIGABRT (Abort)
+# stuartrobinson@Stuarts-MacBook-Pro ~/r/devDayQ12019-ffnn>

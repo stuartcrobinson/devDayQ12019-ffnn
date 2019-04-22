@@ -1,0 +1,34 @@
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+44.9%  n: 642  288
+      {'max_days_lookback': 100, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+46.2%  n: 638  295
+      {'max_days_lookback': 50, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+46.7%  n: 661  309
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+44.7%  n: 683  305
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.2, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+45.1%  n: 536  242
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.4, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+43.7%  n: 348  152
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 120, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+45.6%  n: 660  301
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 30, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+44.4%  n: 583  259
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 2, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+47.7%  n: 768  366
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 3, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+50.3%  n: 755  380
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 4, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+50.1%  n: 756  379
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+45.1%  n: 616  278
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 3, 'recency_bias': [8, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+49.7%  n: 754  375
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 3, 'recency_bias': [8, 7, 2, 2, 1], 'patience': 0, 'validation_split': 0}
+48.5%  n: 747  362
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 3, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 2, 'validation_split': 0}
+49.0%  n: 768  376
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 4, 'validation_split': 0}
+45.5%  n: 644  293
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 6, 'validation_split': 0}
+44.2%  n: 661  292
