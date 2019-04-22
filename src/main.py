@@ -295,7 +295,7 @@ hp.validation_split = 0
 
 print(hp.toJson())
 
-# doEverything(hp, 2015, 2015)
+doEverything(hp, 2015, 2015)
 #
 # hp.max_days_lookback = 100
 # doEverything(hp, 2015, 2015)
