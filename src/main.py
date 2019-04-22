@@ -11,6 +11,8 @@ from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras.layers import Dense
 from tensorflow.python.keras.callbacks import EarlyStopping
 from tensorflow.python.keras.layers import Dropout
+from tensorflow.python.keras import backend
+import gc
 
 #
 
@@ -112,37 +114,45 @@ def toNumpy(x_arrays, y_values, test_x_list, test_y_list):
     return numpy.array(x_arrays), numpy.array(y_values), numpy.array(test_x_list), numpy.array(test_y_list),
 
 
-#
-
-
 # https://towardsdatascience.com/building-a-deep-learning-model-using-keras-1548ca149d37
-def doML(hp, X, y, test_X, test_y):
-    # create model
-    model = Sequential()
-
-    # get number of columns in training data
-    n_cols = X.shape[1]
-
-    # add model layers
-    model.add(Dropout(hp.dropout, input_shape=(n_cols,)))
-
-    for _ in range(hp.layers):
-        model.add(Dense(hp.dim, activation='relu'))
-    model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
-
-    # compile model using mse as a measure of model performance
-    model.compile(optimizer='adam', loss='binary_crossentropy')  # mean_squared_error #binary_crossentropy
-
-    # set early stopping monitor so the model stops training when it won't improve anymore
-    # early_stopping_monitor = EarlyStopping(patience=0)
+def doML(hp, model, X, y, test_X, test_y):
+    # https://stackoverflow.com/questions/50331201/memory-leak-keras-tensorflow1-8-0
+    # # doesn't help :(
+    # backend.clear_session()
+    #
+    # # create model
+    # model = Sequential()
+    #
+    # # get number of columns in training data
+    # n_cols = X.shape[1]
+    #
+    # if hp.dropout == 0:
+    #     model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
+    # else:
+    #     model.add(Dropout(hp.dropout, input_shape=(n_cols,)))
+    #
+    # for _ in range(hp.layers):
+    #     model.add(Dense(hp.dim, activation='relu'))
+    #
+    # model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
+    #
+    # # compile model using mse as a measure of model performance
+    # model.compile(optimizer='adam', loss='binary_crossentropy')  # mean_squared_error #binary_crossentropy
+    #
+    # # set early stopping monitor so the model stops training when it won't improve anymore
+    # # early_stopping_monitor = EarlyStopping(patience=0)
     early_stopping_monitor = EarlyStopping(monitor='loss', patience=hp.patience)
 
     # train model
     # model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
     model.fit(X, y, validation_split=hp.validation_split, epochs=30, callbacks=[early_stopping_monitor])
+    # model.reset_metrics()
 
     # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
     test_y_predictions = model.predict(test_X)
+
+    del model
+    gc.collect()
     print(test_y_predictions, test_y)
     return test_y_predictions, test_y
 
@@ -185,6 +195,34 @@ def removeAllButTeamsFromNnAr(games):
     return games
 
 
+def makeModel(hp, games):
+    backend.clear_session()
+
+    # create model
+    model = Sequential()
+
+    # get number of columns in training data
+    n_cols = len(games[0][C.x])
+
+    if hp.dropout == 0:
+        model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
+    else:
+        model.add(Dropout(hp.dropout, input_shape=(n_cols,)))
+
+    for _ in range(hp.layers):
+        model.add(Dense(hp.dim, activation='relu'))
+
+    model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
+
+    # compile model using mse as a measure of model performance
+    model.compile(optimizer='adam', loss='binary_crossentropy')  # mean_squared_error #binary_crossentropy
+
+    # set early stopping monitor so the model stops training when it won't improve anymore
+    # early_stopping_monitor = EarlyStopping(patience=0)
+    # early_stopping_monitor = EarlyStopping(monitor='loss', patience=hp.patience)
+    return model
+
+
 def doEverything(hp, minSeason=2015, maxSeason=2019):
     games = json.load(open('data/preparedWithNnArrays.json'))
     setDatetimePythonDate(games)
@@ -197,6 +235,8 @@ def doEverything(hp, minSeason=2015, maxSeason=2019):
 
     allYExp = []  # numpy.zeros(0)
     allYActual = []  # numpy.zeros(0)
+
+    model = makeModel(hp, games)
 
     for i, game in enumerate(games):
         if game[C.season] > maxSeason:
@@ -224,7 +264,7 @@ def doEverything(hp, minSeason=2015, maxSeason=2019):
 
         print(date, X.shape, y.shape, test_X.shape, test_y.shape)
 
-        y_exp, y_act = doML(hp, X, y, test_X, test_y)
+        y_exp, y_act = doML(hp, model, X, y, test_X, test_y)
         allYExp += y_exp[:, 0].tolist()
         allYActual += y_act.tolist()
         print('------------------------------------------')
@@ -295,63 +335,69 @@ hp.validation_split = 0
 
 print(hp.toJson())
 
+hp.dropout = 0
+hp.dim = 45
+hp.recency_bias = [10, 9, 3, 2, 1]
+doEverything(hp, 2015, 2015)
+
 # doEverything(hp, 2015, 2015)
 
-hp.max_days_lookback = 100
-doEverything(hp, 2015, 2015)
-
-hp.max_days_lookback = 50
-doEverything(hp, 2015, 2015)
+# hp.max_days_lookback = 100
+# doEverything(hp, 2015, 2015)
+#
+# hp.max_days_lookback = 50
+# doEverything(hp, 2015, 2015)
 
 # hp.max_days_lookback = 300
 # hp.dropout = 0
 # doEverything(hp, 2015, 2015)
 
-hp.dropout = 0.2
-doEverything(hp, 2015, 2015)
+# hp.dropout = 0.2
+# doEverything(hp, 2015, 2015)
+#
+# hp.dropout = 0.4
+# doEverything(hp, 2015, 2015)
+#
+# hp.dropout = 0.1
+# hp.dim = 120
+# doEverything(hp, 2015, 2015)
 
-hp.dropout = 0.4
-doEverything(hp, 2015, 2015)
+# still running: next 3:
+# hp.dim = 30
+# doEverything(hp, 2015, 2015)
+#
+# hp.dim = 60
+# hp.layers = 2
+# doEverything(hp, 2015, 2015)
+#
+# hp.layers = 3
+# doEverything(hp, 2015, 2015)
 
-hp.dropout = 0.1
-hp.dim = 120
-doEverything(hp, 2015, 2015)
-
-hp.dim = 30
-doEverything(hp, 2015, 2015)
-
-hp.dim = 60
-hp.layers = 2
-doEverything(hp, 2015, 2015)
-
-hp.layers = 3
-doEverything(hp, 2015, 2015)
-
-hp.layers = 4
-doEverything(hp, 2015, 2015)
+# hp.layers = 4
+# doEverything(hp, 2015, 2015)
 
 # hp.layers = 1
 # doEverything(hp, 2015, 2015)
 
+# hp.recency_bias = [1, 1, 1, 1, 1]
+# doEverything(hp, 2015, 2015)
+
 # hp.layers = 3
-hp.recency_bias = [8, 4, 3, 2, 1]
-doEverything(hp, 2015, 2015)
-
-hp.recency_bias = [8, 7, 2, 2, 1]
-doEverything(hp, 2015, 2015)
-
-hp.recency_bias = [5, 4, 3, 2, 1]
-hp.patience = 2
-doEverything(hp, 2015, 2015)
-
-hp.patience = 4
-doEverything(hp, 2015, 2015)
-
-hp.patience = 6
-doEverything(hp, 2015, 2015)
-
-
-
+# hp.recency_bias = [8, 4, 3, 2, 1]
+# doEverything(hp, 2015, 2015)
+#
+# hp.recency_bias = [8, 7, 2, 2, 1]
+# doEverything(hp, 2015, 2015)
+#
+# hp.recency_bias = [5, 4, 3, 2, 1]
+# hp.patience = 2
+# doEverything(hp, 2015, 2015)
+#
+# hp.patience = 4
+# doEverything(hp, 2015, 2015)
+#
+# hp.patience = 6
+# doEverything(hp, 2015, 2015)
 
 # 2016-02-28 (1147, 60) (1147,) (7, 60) (7,)
 # libc++abi.dylib: terminating with uncaught exception of type std::__1::system_error: thread constructor failed: Resource temporarily unavailable

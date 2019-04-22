@@ -36,3 +36,46 @@
 Y_METRIC = C.y_homeDidWin
       {'max_days_lookback': 100, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
 65.7%  n: 715  470
+      {'max_days_lookback': 50, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+63.5%  n: 709  450
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+66.2%  n: 752  498
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.2, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+65.1%  n: 704  458
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.4, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+64.8%  n: 654  424
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 120, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+66.3%  n: 721  478
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 30, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+66.3%  n: 706  468
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 4, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+60.4%  n: 791  478
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [8, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+65.5%  n: 695  455
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 2, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+65.1%  n: 763  497
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 4, 'recency_bias': [8, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+62.3%  n: 786  490
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [1, 1, 1, 1, 1], 'patience': 0, 'validation_split': 0}
+64.9%  n: 715  464
+
+
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 6, 'validation_split': 0}
+65.4%  n: 734  480
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 4, 'validation_split': 0}
+66.0%  n: 747  493
+
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 3, 'recency_bias': [8, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+61.9%  n: 782  484
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+63.0%  n: 805  507
+
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [8, 7, 2, 2, 1], 'patience': 0, 'validation_split': 0}
+65.7%  n: 711  467
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 3, 'recency_bias': [8, 7, 2, 2, 1], 'patience': 0, 'validation_split': 0}
+62.5%  n: 786  491
+
+
+### AFTER SWITCHING TO SINGLE MODEL METHOD ###
+      {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0, 'dim': 45, 'layers': 1, 'recency_bias': [10, 9, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+63.8%  n: 821  524
