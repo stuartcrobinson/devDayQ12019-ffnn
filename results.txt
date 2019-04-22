@@ -32,3 +32,7 @@
 45.5%  n: 644  293
       {'max_days_lookback': 365, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 6, 'validation_split': 0}
 44.2%  n: 661  292
+
+Y_METRIC = C.y_homeDidWin
+      {'max_days_lookback': 100, 'min_prev_games': 300, 'dropout': 0.1, 'dim': 60, 'layers': 1, 'recency_bias': [5, 4, 3, 2, 1], 'patience': 0, 'validation_split': 0}
+65.7%  n: 715  470

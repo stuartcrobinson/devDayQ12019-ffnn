@@ -29,10 +29,10 @@ MIN_PREV_GAMES = 300
 MAX_DAYS_LOOKBACK = 365
 
 # Y_METRIC = C.y_isOverFinal
-Y_METRIC = C.y_homeBeatSpreadFinal
+# Y_METRIC = C.y_homeBeatSpreadFinal
 
 
-# Y_METRIC = C.y_homeDidWin
+Y_METRIC = C.y_homeDidWin
 
 
 # todo don't build X per game!!!! build per DAY
@@ -139,7 +139,7 @@ def doML(hp, X, y, test_X, test_y):
 
     # train model
     # model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
-    model.fit(X, y, batch_size=100, validation_split=hp.validation_split, epochs=30, callbacks=[early_stopping_monitor])
+    model.fit(X, y, validation_split=hp.validation_split, epochs=30, callbacks=[early_stopping_monitor])
 
     # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
     test_y_predictions = model.predict(test_X)
@@ -295,60 +295,60 @@ hp.validation_split = 0
 
 print(hp.toJson())
 
+# doEverything(hp, 2015, 2015)
+
+hp.max_days_lookback = 100
 doEverything(hp, 2015, 2015)
-#
-# hp.max_days_lookback = 100
-# doEverything(hp, 2015, 2015)
-#
-# hp.max_days_lookback = 50
-# doEverything(hp, 2015, 2015)
+
+hp.max_days_lookback = 50
+doEverything(hp, 2015, 2015)
 
 # hp.max_days_lookback = 300
 # hp.dropout = 0
 # doEverything(hp, 2015, 2015)
-#
-# hp.dropout = 0.2
-# doEverything(hp, 2015, 2015)
-#
-# hp.dropout = 0.4
-# doEverything(hp, 2015, 2015)
 
-# hp.dropout = 0.1
-# hp.dim = 120
-# doEverything(hp, 2015, 2015)
-#
-# hp.dim = 30
-# doEverything(hp, 2015, 2015)
-#
-# hp.dim = 60
-# hp.layers = 2
-# doEverything(hp, 2015, 2015)
+hp.dropout = 0.2
+doEverything(hp, 2015, 2015)
 
-# hp.layers = 3
-# doEverything(hp, 2015, 2015)
-#
-# hp.layers = 4
-# doEverything(hp, 2015, 2015)
-#
+hp.dropout = 0.4
+doEverything(hp, 2015, 2015)
+
+hp.dropout = 0.1
+hp.dim = 120
+doEverything(hp, 2015, 2015)
+
+hp.dim = 30
+doEverything(hp, 2015, 2015)
+
+hp.dim = 60
+hp.layers = 2
+doEverything(hp, 2015, 2015)
+
+hp.layers = 3
+doEverything(hp, 2015, 2015)
+
+hp.layers = 4
+doEverything(hp, 2015, 2015)
+
 # hp.layers = 1
 # doEverything(hp, 2015, 2015)
 
 # hp.layers = 3
-# hp.recency_bias = [8, 4, 3, 2, 1]
-# doEverything(hp, 2015, 2015)
-#
-# hp.recency_bias = [8, 7, 2, 2, 1]
-# doEverything(hp, 2015, 2015)
-#
-# hp.recency_bias = [5, 4, 3, 2, 1]
-# hp.patience = 2
-# doEverything(hp, 2015, 2015)
-#
-# hp.patience = 4
-# doEverything(hp, 2015, 2015)
-#
-# hp.patience = 6
-# doEverything(hp, 2015, 2015)
+hp.recency_bias = [8, 4, 3, 2, 1]
+doEverything(hp, 2015, 2015)
+
+hp.recency_bias = [8, 7, 2, 2, 1]
+doEverything(hp, 2015, 2015)
+
+hp.recency_bias = [5, 4, 3, 2, 1]
+hp.patience = 2
+doEverything(hp, 2015, 2015)
+
+hp.patience = 4
+doEverything(hp, 2015, 2015)
+
+hp.patience = 6
+doEverything(hp, 2015, 2015)
 
 
 
