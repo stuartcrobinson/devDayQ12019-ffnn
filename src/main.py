@@ -139,7 +139,7 @@ def doML(hp, X, y, test_X, test_y):
 
     # train model
     # model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
-    model.fit(X, y, validation_split=hp.validation_split, epochs=30, callbacks=[early_stopping_monitor])
+    model.fit(X, y, batch_size=100, validation_split=hp.validation_split, epochs=30, callbacks=[early_stopping_monitor])
 
     # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
     test_y_predictions = model.predict(test_X)

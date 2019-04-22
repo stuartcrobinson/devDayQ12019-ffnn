@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fbfe3a6-f425-4965-8773-04d0c9d256b9" name="Default Changelist" comment="" />
+    <list default="true" id="5fbfe3a6-f425-4965-8773-04d0c9d256b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/data/preparedWithNnArrays.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/preparedWithNnArrays.json" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,14 +33,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="350" column="30" lean-forward="true" selection-start-line="345" selection-start-column="1" selection-end-line="350" selection-end-column="30" />
+            <state relative-caret-position="666">
+              <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="527" column="17" selection-start-line="527" selection-start-column="17" selection-end-line="527" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -292,13 +303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="524" column="6" selection-start-line="524" selection-start-column="6" selection-end-line="524" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/callbacks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -339,11 +343,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="350" column="30" lean-forward="true" selection-start-line="345" selection-start-column="1" selection-end-line="350" selection-end-column="30" />
+        <state relative-caret-position="666">
+          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="527" column="17" selection-start-line="527" selection-start-column="17" selection-end-line="527" selection-end-column="17" />
         </state>
       </provider>
     </entry>
