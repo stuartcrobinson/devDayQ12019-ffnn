@@ -1,0 +1,35 @@
+!!python/object:networkx.classes.graph.Graph
+_adj:
+  0:
+    1: &id001 {}
+    2: &id002 {}
+  1:
+    0: *id001
+    3: &id003 {}
+  2:
+    0: *id002
+    3: &id004 {}
+    4: &id005 {}
+  3:
+    1: *id003
+    2: *id004
+    4: &id006 {}
+  4:
+    2: *id005
+    3: *id006
+_node: &id008
+  0: {}
+  1: {}
+  2: {}
+  3: {}
+  4: {}
+adjlist_inner_dict_factory: &id007 !!python/name:builtins.dict ''
+adjlist_outer_dict_factory: *id007
+edge_attr_dict_factory: *id007
+graph:
+  name: House Graph
+graph_attr_dict_factory: *id007
+node_attr_dict_factory: *id007
+node_dict_factory: *id007
+nodes: !!python/object:networkx.classes.reportviews.NodeView
+  _nodes: *id008

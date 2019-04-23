@@ -2,6 +2,7 @@ import json
 import datetime
 import constants as C
 
+
 # now build nn input layer arrays and save with json file.
 # first need to get one-hot encoding maps for teams and tv stations.
 # so get a set of all elements, then convert to array.   array = index --> value dictionary.  also make map: value --> index
@@ -102,7 +103,7 @@ def getDaysSinceNPriorGame(nickname, i, obj, dataAr, n):
             if k == 0:
                 results[k] = min(days, 5)
             else:
-                results[k] = min(days - results[k-1], 5)
+                results[k] = min(days - results[k - 1], 5)
             k += 1
     # output += '\n' + str(results) + '\n'
     # if 999 in results and nickname == 'Magic':
@@ -111,7 +112,6 @@ def getDaysSinceNPriorGame(nickname, i, obj, dataAr, n):
 
 
 def buildNnInputArray(i, obj, dataAr, m_i_team, m_i_station, m_team_i, m_station_i):
-
     xTeams = [0] * len(m_i_team)
     xTeamsIsHome = [0] * len(m_i_team)
     xStations = [0] * len(m_i_station)
@@ -141,7 +141,7 @@ def buildNnInputArray(i, obj, dataAr, m_i_team, m_i_station, m_team_i, m_station
 
     # todo 1. python sort.  2.  python date.  3.  python num days between dates
     result = xTeams + xTeamsIsHome + xStations + \
-        homeDaysSincePrevGamesAr + awayDaysSincePrevGamesAr
+             homeDaysSincePrevGamesAr + awayDaysSincePrevGamesAr
 
     # print(result)
 
@@ -156,8 +156,8 @@ def getSeason(date):
     else:
         return year - 1
 
-def main():
 
+def main():
     data = json.load(open('data/prepared.json'))
 
     teams = set()
@@ -179,6 +179,16 @@ def main():
     for i, x in enumerate(stations):
         m_station_i[x] = i
 
+    dictionary = {}
+    dictionary['m_i_team'] = m_i_team
+    dictionary['m_i_station'] = m_i_station
+    dictionary['m_team_i'] = m_team_i
+    dictionary['m_station_i'] = m_station_i
+
+    with open('data/dictionary.json', 'w') as outfile:
+        json.dump(obj=dictionary, fp=outfile, indent=4, separators=(',', ': '))
+
+    # exit()
     dataAr = [data[key] for key in data.keys()]
 
     for obj in dataAr:

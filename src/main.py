@@ -14,7 +14,6 @@ from tensorflow.python.keras.layers import Dropout
 from tensorflow.python.keras import backend
 import gc
 
-
 from tensorflow.python.keras.utils import plot_model
 
 #
@@ -115,7 +114,9 @@ def getTrainingDataSingleModel(hp, i, games):
         if gameIter[hp.y_metric] is not None:
             for _ in range(getRecencyBiasFactor(hp, numDaysAgo)):
                 x_arrays.append(gameIter[C.x])
+                # x_arrays.append(gameIter[C.x][30:60] + gameIter[C.x][0:30])
                 y_values.append(gameIter[hp.y_metric])
+                # y_values.append(0 if gameIter[hp.y_metric] == 1 else 1)
         prevNumDaysAgo = numDaysAgo
     return x_arrays, y_values
 
@@ -125,7 +126,9 @@ def getTestData(hp, games):
     y_values = []
     for game in games:
         x_arrays.append(game[C.x])
+        # x_arrays.append(game[C.x][30:60] + game[C.x][0:30])
         y_values.append(game[hp.y_metric])
+        # y_values.append(0 if game[hp.y_metric] == 1 else 1)
     return x_arrays, y_values
 
 
@@ -142,6 +145,12 @@ def get_mDateGames(games):
 
 def toNumpy(x_arrays, y_values, test_x_list, test_y_list):
     return numpy.array(x_arrays), numpy.array(y_values), numpy.array(test_x_list), numpy.array(test_y_list),
+
+
+# import numpy
+import sys
+
+numpy.set_printoptions(threshold=sys.maxsize)
 
 
 # https://towardsdatascience.com/building-a-deep-learning-model-using-keras-1548ca149d37
@@ -177,8 +186,12 @@ def doML(hp, model, X, y, test_X, test_y):
     # model.fit(X, y, validation_split=0.2, epochs=30, callbacks=[early_stopping_monitor])
     model.fit(X, y, batch_size=2000, validation_split=hp.validation_split, epochs=hp.epochs,
               callbacks=[early_stopping_monitor])
-
-    print(model.weights)
+    #
+    # print(model.weights[0])
+    # print(model.weights[0][0])
+    # print(model.weights)
+    # print('wtf')
+    # print(model.get_weights())
     # model.reset_metrics()
 
     # example on how to use our newly trained model on how to make predictions on unseen data (we will pretend our new data is saved in a dataframe called 'test_X').
@@ -186,10 +199,10 @@ def doML(hp, model, X, y, test_X, test_y):
 
     # plot_model(model, to_file='model.png')
 
-    del model
-    gc.collect()
+    # del model
+    # gc.collect()
     print(test_y_predictions, test_y)
-    return test_y_predictions, test_y
+    return test_y_predictions, test_y, model
 
 
 def getResultsStr(allYExp, allYActual):
@@ -257,15 +270,27 @@ def makeModel(hp, games):
     n_cols = len(games[0][C.x])
     print("ncols:", n_cols)
 
-    if hp.dropout == 0:
-        model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
-    else:
+    if hp.dropout > 0:
         model.add(Dropout(hp.dropout, input_shape=(n_cols,)))
 
-    for _ in range(hp.layers):
-        model.add(Dense(hp.dim, activation='relu'))
+    # if hp.dropout == 0:
+    #     model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
+    # else:
+    #     model.add(Dropout(hp.dropout, input_shape=(n_cols,)))
 
-    model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
+    if hp.layers > 0:
+        if hp.dropout > 0:
+            model.add(Dense(hp.dim, activation='relu'))
+        else:
+            model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
+
+        for _ in range(hp.layers - 1):
+            model.add(Dense(hp.dim, activation='relu'))
+
+    if hp.layers == 0 and hp.dropout == 0:
+        model.add(Dense(1, kernel_initializer='normal', activation='sigmoid', input_shape=(n_cols,)))
+    else:
+        model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
 
     # compile model using mse as a measure of model performance
     model.compile(optimizer='adam', loss='binary_crossentropy')  # mean_squared_error #binary_crossentropy
@@ -311,7 +336,7 @@ def doEverything(hp, minSeason=2015, maxSeason=2019):
         date = game['pythonDate'].date()
         # if date.month > 5: #!= 3:  # and date.month != 3:
         #     continue
-        # if date.month != 3 or date.day > 1:  # and date.month != 3:
+        # if date.month != 3:  # or date.day > 1:  # and date.month != 3:
         #     continue
 
         if date == datePrev:
@@ -331,12 +356,16 @@ def doEverything(hp, minSeason=2015, maxSeason=2019):
 
         print(date, X.shape, y.shape, test_X.shape, test_y.shape)
 
-        y_exp, y_act = doML(hp, model, X, y, test_X, test_y)
+        y_exp, y_act, model = doML(hp, model, X, y, test_X, test_y)
         allYExp += y_exp[:, 0].tolist()
         allYActual += y_act.tolist()
         print('------------------------------------------')
         print(getResultsStr(allYExp, allYActual))
         print()
+
+    # print(model.weights)
+    with open("weights.txt", "w") as text_file:
+        text_file.write(str(model.weights))
 
     print("      " + str(hp.toJson()))
 
@@ -423,7 +452,7 @@ print(hp.toJson())
 hp.dropout = 0.3
 hp.dim = 30
 hp.recency_bias = [10, 9, 8, 1, 1]
-hp.layers = 1
+hp.layers = 0
 hp.max_days_lookback = 300
 hp.epochs = 30
 
@@ -431,8 +460,13 @@ hp.epochs = 30
 # hp.max_days_lookback = 17
 # hp.epochs = 6
 #
+hp.dropout = 0.1
 
-doEverything(hp, 2017, 2017)
+# hp.layers = 0
+# doEverything(hp, 2015, 2018)
+
+hp.layers = 1
+doEverything(hp, 2015, 2017)
 #
 # hp.dropStations = False
 # hp.dropRecency = False

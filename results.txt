@@ -346,3 +346,29 @@ Y_METRIC = C.y_homeDidWin
 66.0%  n: 1111  733
       {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.3, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
 66.6%  n: 1068  711
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.3, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+67.3%  n: 1075  723
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.3, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+68.0%  n: 822  559
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.3, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_isOverInit', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+49.1%  n: 411  202
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+61.5%  n: 1305  803
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+69.8%  n: 712  497
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+69.6%  n: 542  377
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.2, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+69.1%  n: 470  325
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+70.3%  n: 735  517
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 0, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+66.8%  n: 3740  2499
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+64.7%  n: 4232  2736
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+70.5%  n: 149  105
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+71.5%  n: 151  108
+      {'max_days_lookback': 300, 'min_prev_games': 300, 'dropout': 0.1, 'epochs': 30, 'dim': 30, 'layers': 1, 'recency_bias': [10, 9, 8, 1, 1], 'patience': 0, 'validation_split': 0, 'y_metric': 'y_homeDidWin', 'dropStations': False, 'dropRecency': False, 'dropRecencyAndStations': True, 'keepOnlyFirst30Elements': False}
+63.9%  n: 6206  3968

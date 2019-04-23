@@ -1,0 +1,5 @@
+0 1 {}
+1 2 {}
+2 3 {}
+10 11 {'weight': 7, 'color': 'red'}
+11 12 {'weight': 7, 'color': 'red'}
