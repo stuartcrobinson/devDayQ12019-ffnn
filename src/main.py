@@ -12,37 +12,8 @@ from tensorflow.python.keras.layers import Dense
 from tensorflow.python.keras.callbacks import EarlyStopping
 from tensorflow.python.keras.layers import Dropout
 from tensorflow.python.keras import backend
-import gc
 
 from tensorflow.python.keras.utils import plot_model
-
-#
-
-
-# build X for keras
-
-# now load sorted games w/ nn arrays (preppedWithnnArrays)
-# iterate through.  with index.
-# const:    - MIN_HISTORICAL_GAMES - must b true for home and away
-#           - MAX_DAYS_LOOKBACK    - maximum number of prior days to include in X -- 1 year?
-#           - RECENCY_BIAS_PARAMETER - 5x for past 2 days, 4x for past week, 3x for past month, 2x for past 2 months, 1x for past MAX_DAYS_LOOKBACK
-#           - MIN_PREV_GAMES - irrelevant of teams.  cos models are built per day not per game
-
-
-MIN_HISTORICAL_GAMES = 5
-MIN_PREV_GAMES = 300
-MAX_DAYS_LOOKBACK = 365
-
-
-# Y_METRIC = C.y_isOverFinal
-# Y_METRIC = C.y_homeBeatSpreadFinal
-
-
-# Y_METRIC = C.y_homeDidWin
-
-
-# todo don't build X per game!!!! build per DAY
-# ugh okay how to determine if new day ...
 
 
 def setDatetimePythonDate(games):
@@ -155,29 +126,6 @@ numpy.set_printoptions(threshold=sys.maxsize)
 
 # https://towardsdatascience.com/building-a-deep-learning-model-using-keras-1548ca149d37
 def doML(hp, model, X, y, test_X, test_y):
-    # https://stackoverflow.com/questions/50331201/memory-leak-keras-tensorflow1-8-0
-    # # doesn't help :(
-    # backend.clear_session()
-    #
-    # # create model
-    # model = Sequential()
-    #
-    # # get number of columns in training data
-    # n_cols = X.shape[1]
-    #
-    # if hp.dropout == 0:
-    #     model.add(Dense(hp.dim, activation='relu', input_shape=(n_cols,)))
-    # else:
-    #     model.add(Dropout(hp.dropout, input_shape=(n_cols,)))
-    #
-    # for _ in range(hp.layers):
-    #     model.add(Dense(hp.dim, activation='relu'))
-    #
-    # model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))
-    #
-    # # compile model using mse as a measure of model performance
-    # model.compile(optimizer='adam', loss='binary_crossentropy')  # mean_squared_error #binary_crossentropy
-    #
     # # set early stopping monitor so the model stops training when it won't improve anymore
     # # early_stopping_monitor = EarlyStopping(patience=0)
     early_stopping_monitor = EarlyStopping(monitor='loss', patience=hp.patience)
@@ -189,7 +137,7 @@ def doML(hp, model, X, y, test_X, test_y):
     #
     # print(model.weights[0])
     # print(model.weights[0][0])
-    # print(model.weights)
+    print(model.weights)
     # print('wtf')
     # print(model.get_weights())
     # model.reset_metrics()

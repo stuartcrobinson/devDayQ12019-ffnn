@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fbfe3a6-f425-4965-8773-04d0c9d256b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/graph1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphHouse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphRW.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphWeighted.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weightsDoubled.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weightsForPicture.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weightsForPictureDoubled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/preparedWithNnArrays.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/preparedWithNnArrays.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/src/graphHouse.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="21" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="10" selection-end-column="21" />
+              <caret line="10" column="21" selection-start-line="5" selection-start-column="26" selection-end-line="10" selection-end-column="21" />
               <folding>
                 <element signature="e#42#73#0" expanded="true" />
               </folding>
@@ -36,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="450">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#42#73#0" expanded="true" />
               </folding>
@@ -70,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
-              <caret line="160" column="35" lean-forward="true" selection-start-line="160" selection-end-line="161" />
+              <caret line="160" column="35" selection-start-line="160" selection-end-line="161" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -78,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="52" column="14" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="14" />
+            <state relative-caret-position="241">
+              <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -94,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/weightsDoubled.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="606" column="71" lean-forward="true" selection-start-line="601" selection-start-column="6" selection-end-line="606" selection-end-column="71" />
+              <caret line="606" column="71" selection-start-line="601" selection-start-column="6" selection-end-line="606" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -103,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/weights.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
-              <caret line="592" column="58" lean-forward="true" selection-start-line="592" selection-start-column="58" selection-end-line="592" selection-end-column="58" />
+              <caret line="592" column="58" selection-start-line="592" selection-start-column="58" selection-end-line="592" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -130,9 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>max_days_lookback</find>
-      <find>printRest</find>
-      <find>:,f</find>
       <find>format</find>
       <find>getResultsStr</find>
       <find>.day</find>
@@ -160,6 +145,9 @@
       <find>weights</find>
       <find>0:30</find>
       <find>recency_bias</find>
+      <find>MIN_HISTORICAL_GAMES</find>
+      <find>MIN_PREV_GAMES</find>
+      <find>MAX_DAYS_LOOKBACK</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -188,8 +176,8 @@
         <option value="$PROJECT_DIR$/weightsForPicture.json" />
         <option value="$PROJECT_DIR$/src/_3_addArraysToPrepdData.py" />
         <option value="$PROJECT_DIR$/weightsForPictureDoubled.json" />
-        <option value="$PROJECT_DIR$/src/main.py" />
         <option value="$PROJECT_DIR$/src/graphTest.py" />
+        <option value="$PROJECT_DIR$/src/main.py" />
       </list>
     </option>
   </component>
@@ -502,7 +490,7 @@
     <entry file="file://$PROJECT_DIR$/src/graphHouse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="10" selection-end-column="21" />
+          <caret line="10" column="21" selection-start-line="5" selection-start-column="26" selection-end-line="10" selection-end-column="21" />
           <folding>
             <element signature="e#42#73#0" expanded="true" />
           </folding>
@@ -550,7 +538,7 @@
     <entry file="file://$PROJECT_DIR$/weights.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
-          <caret line="592" column="58" lean-forward="true" selection-start-line="592" selection-start-column="58" selection-end-line="592" selection-end-column="58" />
+          <caret line="592" column="58" selection-start-line="592" selection-start-column="58" selection-end-line="592" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -560,7 +548,7 @@
     <entry file="file://$PROJECT_DIR$/src/_3_addArraysToPrepdData.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
-          <caret line="160" column="35" lean-forward="true" selection-start-line="160" selection-end-line="161" />
+          <caret line="160" column="35" selection-start-line="160" selection-end-line="161" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -584,7 +572,7 @@
     <entry file="file://$PROJECT_DIR$/weightsDoubled.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="606" column="71" lean-forward="true" selection-start-line="601" selection-start-column="6" selection-end-line="606" selection-end-column="71" />
+          <caret line="606" column="71" selection-start-line="601" selection-start-column="6" selection-end-line="606" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -595,22 +583,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.py">
+    <entry file="file://$PROJECT_DIR$/src/graphTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="52" column="14" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="14" />
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#42#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphTest.py">
+    <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="241">
+          <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
           <folding>
-            <element signature="e#42#73#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
